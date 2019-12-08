@@ -11,6 +11,8 @@ public class Room {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int roomNr;
+    @ManyToOne
+    private Hotel hotel;
 
     public Room() {
     }
@@ -41,5 +43,13 @@ public class Room {
                 "id=" + id +
                 ", roomNr=" + String.format("%03d", roomNr) +
                 '}';
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 }
