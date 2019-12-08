@@ -46,6 +46,22 @@ Kompilieren und ausführen des Projektes
 image::images/CLD.png[]
 
 
+
+== REST
+
+* [x] GET
+* [ ] POST
+* [ ] DELETE
+
+*GET*
+
+----
+curl -X GET http://localhost:8080/hotel
+curl -X GET http://localhost:8080/guest
+curl -X GET http://localhost:8080/booking
+curl -X GET http://localhost:8080/room
+----
+
 === Hibernate
 
 ----
@@ -85,7 +101,7 @@ docker stop [CONTAINER ID]
 
 docker ps -a:: Zeigt jeden Container an
 docker ps:: Zeigt jeden laufenden Container an
-docker stop [CONTAINER ID]:: Beendet den gewählten Container (mind. 3 ersten Stellen)
+docker stop [CONTAINER ID]:: Beendet den gewählten Container (3 ID-Stellen genügen)
 
 ==== application.properties
 
