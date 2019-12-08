@@ -1,9 +1,9 @@
-package at.htl;
+package at.htl.quickstart;
 
 import io.quarkus.test.junit.SubstrateTest;
 
 @SubstrateTest
-public class NativeTestResourceIT extends TestResourceTest {
+public class NativeGreetingResourceIT extends GreetingResourceTest {
 
     // Execute the same tests but in native mode.
 }

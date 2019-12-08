@@ -1,4 +1,4 @@
-package at.htl;
+package at.htl.quickstart;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
@@ -7,12 +7,12 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
-public class TestResourceTest {
+public class GreetingResourceTest {
 
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/hello")
+          .when().get("/C:/Program Files/Git/hello")
           .then()
              .statusCode(200)
              .body(is("hello"));
