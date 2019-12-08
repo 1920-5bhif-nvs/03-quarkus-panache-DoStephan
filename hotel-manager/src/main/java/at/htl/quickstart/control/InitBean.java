@@ -1,5 +1,6 @@
 package at.htl.quickstart.control;
 
+import at.htl.quickstart.entity.Booking;
 import at.htl.quickstart.entity.Guest;
 import at.htl.quickstart.entity.Hotel;
 import at.htl.quickstart.entity.Room;
@@ -21,14 +22,33 @@ public class InitBean {
 
     @Transactional
     public void init(@Observes StartupEvent ev){
-        initHotel();
         initGuest();
+        initHotel();
         initRoom();
+        initBooking();
+    }
+
+    private void initBooking() {
+        List<Guest> guests = em.createNamedQuery("Guest.getAll", Guest.class).getResultList();
+        List<Room> rooms = em.createNamedQuery("Room.getAll", Room.class).getResultList();
+        Booking[] bookings = {
+                new Booking(70, "Euro", 3, guests.get(0), rooms.get(2)),
+                new Booking(70, "Euro", 3, guests.get(1), rooms.get(2)),
+                new Booking(50, "Euro", 1, guests.get(2), rooms.get(3)),
+                new Booking(150, "Euro", 7, guests.get(3), rooms.get(4)),
+                new Booking(150, "Euro", 7, guests.get(4), rooms.get(4)),
+        };
+        for (Booking booking : bookings) {
+            em.persist(booking);
+        }
     }
 
     private void initRoom() {
+        List<Hotel> hotels = em.createNamedQuery("Hotel.getAll", Hotel.class).getResultList();
         for (int i = 1; i < 50; i++) {
-            em.persist(new Room(i));
+            Room room = new Room(i);
+            room.setHotel(hotels.get(0));
+            em.persist(room);
         }
     }
 
@@ -37,6 +57,9 @@ public class InitBean {
                 new Guest("Steve"),
                 new Guest("Nero"),
                 new Guest("Luna"),
+                new Guest("Alan"),
+                new Guest("Maya"),
+                new Guest("John"),
         };
         for (Guest guest : guests) {
             em.persist(guest);
