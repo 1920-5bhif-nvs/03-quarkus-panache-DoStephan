@@ -34,4 +34,12 @@ public class Room {
     public void setRoomNr(int roomNr) {
         this.roomNr = roomNr;
     }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", roomNr=" + String.format("%03d", roomNr) +
+                '}';
+    }
 }
