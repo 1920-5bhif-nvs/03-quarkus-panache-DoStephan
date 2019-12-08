@@ -1,10 +1,10 @@
 package at.htl.quickstart.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@NamedQueries(value = {
+        @NamedQuery(name = "Booking.getAll", query = "select b from Booking b")
+})
 @Entity
 public class Booking {
 
