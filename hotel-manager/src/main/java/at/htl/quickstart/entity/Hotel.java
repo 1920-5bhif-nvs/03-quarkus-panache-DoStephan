@@ -15,7 +15,7 @@ public class Hotel {
     private String name;
 
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    @JoinColumn(name = "room_id")
+//    @JoinColumn(name = "fk_room")
 //    private List<Room> rooms = new ArrayList<>();
 
     public Hotel() {

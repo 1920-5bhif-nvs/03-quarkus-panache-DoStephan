@@ -10,6 +10,7 @@
 == Asciidoctor
 
 https://asciidoctor.org/docs/user-manual/
+
 https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
 
 == Projekterstellung
@@ -25,7 +26,7 @@ Erstellen des Projektes
 -Dextensions="resteasy-jsonb"
 ----
 
-Falls man weitere Extensions nachträglich hinzufügen will
+Falls man weitere Dependency nachträglich hinzufügen will
 
 ----
 ./mvnw quarkus:add-extension -Dextensions="resteasy-jsonb"
@@ -62,7 +63,7 @@ curl -X GET http://localhost:8080/booking
 curl -X GET http://localhost:8080/room
 ----
 
-=== Hibernate
+== Hibernate
 
 ----
 <dependencies>
@@ -123,3 +124,10 @@ Panache
 
 https://quarkus.io/guides/hibernate-orm-panache
 
+==== Bei Problemen:
+
+----
+Could not find MessageBodyWriter for response object of type
+----
+
+Man benötigt die Dependency `-Dextensions="resteasy-jsonb".`
